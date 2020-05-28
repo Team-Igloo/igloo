@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   View,
   Text,
@@ -22,7 +22,7 @@ function renderAddBtn() {
           alignItems: 'center',
         },
         Platform.OS == 'android'
-          ? {elevation: 3}
+          ? { elevation: 3 }
           : {
               shadowColor: 'rgba(0, 0, 0, 0.16)',
               shadowOffset: {
@@ -32,29 +32,23 @@ function renderAddBtn() {
               shadowRadius: 6,
               shadowOpacity: 1,
             },
-      ]}>
-      <View style={{flexDirection: 'row', alignItems: 'center'}}>
-        <View style={{width: 22, height: 22, backgroundColor: 'red'}} />
+      ]}
+    >
+      <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+        <View style={{ width: 22, height: 22, backgroundColor: 'red' }} />
         <Text
           style={{
             fontSize: 20,
             fontWeight: 'normal',
             fontStyle: 'normal',
-          }}>
+          }}
+        >
           냉장고 추가하기
         </Text>
       </View>
     </TouchableOpacity>
   );
 }
-
-// function onLayout() {
-//   const [parentWidth, setParentWidth] = useState(0);
-//   const onLayout = event => {
-//     const {width} = event.native.layout;
-//     setParentWidth(width);
-//   };
-// }
 
 function renderFridges() {
   const [Fridges] = useState([1, 2, 3]);
@@ -102,20 +96,23 @@ function renderFridges() {
                 shadowRadius: 12,
                 shadowOpacity: 1,
               },
-        ]}>
+        ]}
+      >
         <View
           style={{
             flexDirection: 'row',
-          }}>
+          }}
+        >
           <Text
             style={{
               fontSize: 20,
               fontWeight: 'normal',
               fontStyle: 'normal',
-            }}>
+            }}
+          >
             냉장고
           </Text>
-          <View style={{flex: 1}} />
+          <View style={{ flex: 1 }} />
           {val === 1 && (
             <View
               style={{
@@ -125,14 +122,16 @@ function renderFridges() {
                 backgroundColor: 'rgba(51, 175, 19,1)',
                 justifyContent: 'center',
                 alignItems: 'center',
-              }}>
+              }}
+            >
               <Text
                 style={{
                   fontSize: 15,
                   fontWeight: 'normal',
                   fontStyle: 'normal',
                   color: 'rgba(255,255,255,1)',
-                }}>
+                }}
+              >
                 신선
               </Text>
             </View>
@@ -146,14 +145,16 @@ function renderFridges() {
                 backgroundColor: 'rgba(239, 202, 0,1)',
                 justifyContent: 'center',
                 alignItems: 'center',
-              }}>
+              }}
+            >
               <Text
                 style={{
                   fontSize: 15,
                   fontWeight: 'normal',
                   fontStyle: 'normal',
                   color: 'rgba(255,255,255,1)',
-                }}>
+                }}
+              >
                 보통
               </Text>
             </View>
@@ -167,14 +168,16 @@ function renderFridges() {
                 backgroundColor: 'red',
                 justifyContent: 'center',
                 alignItems: 'center',
-              }}>
+              }}
+            >
               <Text
                 style={{
                   fontSize: 15,
                   fontWeight: 'normal',
                   fontStyle: 'normal',
                   color: 'rgba(255,255,255,1)',
-                }}>
+                }}
+              >
                 나쁨
               </Text>
             </View>
@@ -205,14 +208,15 @@ function renderFridges() {
 
 function FridgeList() {
   return (
-    <View style={{flex: 1}}>
-      <View style={{marginLeft: 18, marginTop: 41}}>
+    <View style={{ flex: 1 }}>
+      <View style={{ marginLeft: 18, marginTop: 41 }}>
         <Text
           style={{
             fontSize: 27,
             fontWeight: 'normal',
             fontStyle: 'normal',
-          }}>
+          }}
+        >
           냉장고를 선택해주세요.
         </Text>
       </View>
@@ -223,7 +227,8 @@ function FridgeList() {
         contentContainerStyle={{
           flex: 1,
           alignItems: 'center',
-        }}>
+        }}
+      >
         {renderFridges()}
         {renderAddBtn()}
       </ScrollView>
