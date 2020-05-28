@@ -9,51 +9,12 @@ import {
   Animated,
 } from 'react-native';
 
-function renderAddBtn() {
-  return (
-    <TouchableOpacity
-      style={[
-        {
-          width: Dimensions.get('window').width - 36,
-          height: 54,
-          borderRadius: 15,
-          marginTop: 26,
-          justifyContent: 'center',
-          alignItems: 'center',
-        },
-        Platform.OS == 'android'
-          ? { elevation: 3 }
-          : {
-              shadowColor: 'rgba(0, 0, 0, 0.16)',
-              shadowOffset: {
-                width: 0,
-                height: 0,
-              },
-              shadowRadius: 6,
-              shadowOpacity: 1,
-            },
-      ]}
-    >
-      <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-        <View style={{ width: 22, height: 22, backgroundColor: 'red' }} />
-        <Text
-          style={{
-            fontSize: 20,
-            fontWeight: 'normal',
-            fontStyle: 'normal',
-          }}
-        >
-          냉장고 추가하기
-        </Text>
-      </View>
-    </TouchableOpacity>
-  );
-}
+import { LongAddBtn, FreshIndication } from '../../../components';
 
 function renderFridges() {
   const [Fridges] = useState([1, 2, 3]);
 
-  return Fridges.map(function(val: number) {
+  return Fridges.map(function (val: number) {
     const [value] = useState(new Animated.Value(0));
 
     useEffect(() => {
@@ -94,7 +55,6 @@ function renderFridges() {
                   height: 0,
                 },
                 shadowRadius: 12,
-                shadowOpacity: 1,
               },
         ]}
       >
@@ -113,75 +73,7 @@ function renderFridges() {
             냉장고
           </Text>
           <View style={{ flex: 1 }} />
-          {val === 1 && (
-            <View
-              style={{
-                width: 40,
-                height: 23,
-                borderRadius: 6,
-                backgroundColor: 'rgba(51, 175, 19,1)',
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}
-            >
-              <Text
-                style={{
-                  fontSize: 15,
-                  fontWeight: 'normal',
-                  fontStyle: 'normal',
-                  color: 'rgba(255,255,255,1)',
-                }}
-              >
-                신선
-              </Text>
-            </View>
-          )}
-          {val === 2 && (
-            <View
-              style={{
-                width: 40,
-                height: 23,
-                borderRadius: 6,
-                backgroundColor: 'rgba(239, 202, 0,1)',
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}
-            >
-              <Text
-                style={{
-                  fontSize: 15,
-                  fontWeight: 'normal',
-                  fontStyle: 'normal',
-                  color: 'rgba(255,255,255,1)',
-                }}
-              >
-                보통
-              </Text>
-            </View>
-          )}
-          {val === 3 && (
-            <View
-              style={{
-                width: 40,
-                height: 23,
-                borderRadius: 6,
-                backgroundColor: 'red',
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}
-            >
-              <Text
-                style={{
-                  fontSize: 15,
-                  fontWeight: 'normal',
-                  fontStyle: 'normal',
-                  color: 'rgba(255,255,255,1)',
-                }}
-              >
-                나쁨
-              </Text>
-            </View>
-          )}
+          <FreshIndication val={val}></FreshIndication>
         </View>
         <View>
           <Animated.View
@@ -196,7 +88,7 @@ function renderFridges() {
                   : val === 2
                   ? 'rgba(239, 202, 0,1)'
                   : val === 3
-                  ? 'red'
+                  ? 'rgba(207, 85, 61,1)'
                   : 'rgba(195, 193, 193,1)',
             }}
           />
@@ -230,7 +122,9 @@ function FridgeList() {
         }}
       >
         {renderFridges()}
-        {renderAddBtn()}
+        <View style={{ marginTop: 26 }}>
+          <LongAddBtn>냉장고</LongAddBtn>
+        </View>
       </ScrollView>
     </View>
   );
