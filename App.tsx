@@ -1,16 +1,12 @@
 import React from 'react';
-import {AppNavigator} from './src/system';
-import {View} from 'react-native';
+import { AppNavigator } from './src/system';
 
-function App() {
+const App: React.FC = () => {
   return (
-    <View
-      style={{
-        flex: 1,
-      }}>
+    <>
       <AppNavigator />
-    </View>
+    </>
   );
-}
+};
 
 export default App;
