@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { FridgeList, FridgeDetail } from '../../pages/Main';
+import { FridgeList, FridgeDetail, AddItem } from '../../pages/Main';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator, StackNavigationProp } from '@react-navigation/stack';
@@ -13,16 +13,22 @@ type RootStackParamList = {
 type MainStackParamList = {
   FridgeList: undefined;
   FridgeDetail: undefined;
+  AddItem: undefined;
 };
 
 type FridgeListScreenNavigationProp = StackNavigationProp<MainStackParamList, 'FridgeList'>;
 type FridgeDetailScreenNavigationProp = StackNavigationProp<MainStackParamList, 'FridgeDetail'>;
+type AddItemScreenNavigationProp = StackNavigationProp<MainStackParamList, 'AddItem'>;
 
 type FridgeListProps = {
   navigation: FridgeListScreenNavigationProp;
 };
 type FridgeDetailProps = {
   navigation: FridgeDetailScreenNavigationProp;
+};
+
+type AddItemProps = {
+  navigation: AddItemScreenNavigationProp;
 };
 
 //stacks
@@ -39,9 +45,10 @@ function Root() {
 
 function Main() {
   return (
-    <mainStack.Navigator initialRouteName='FridgeDetail' headerMode='none'>
+    <mainStack.Navigator initialRouteName='AddItem' headerMode='none'>
       <mainStack.Screen name='FridgeList' component={renderFridgeList} />
       <mainStack.Screen name='FridgeDetail' component={renderFridgeDetail} />
+      <mainStack.Screen name='AddItem' component={renderAddItem} />
     </mainStack.Navigator>
   );
 }
@@ -54,6 +61,10 @@ function renderFridgeList({ navigation }: FridgeListProps) {
 
 function renderFridgeDetail({ navigation }: FridgeDetailProps) {
   return <FridgeDetail />;
+}
+
+function renderAddItem({ navigation }: AddItemProps) {
+  return <AddItem />;
 }
 
 // navigatior

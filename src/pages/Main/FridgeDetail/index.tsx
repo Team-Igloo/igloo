@@ -9,7 +9,7 @@ import {
   Animated,
 } from 'react-native';
 
-import { LongAddBtn, FreshIndication, ItemCard } from '../../../components';
+import { LongAddBtn, FreshIndication, ItemCard, ShortAddBtn } from '../../../components';
 
 function rederItems(data: object) {
   const [value] = useState([
