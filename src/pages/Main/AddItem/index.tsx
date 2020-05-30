@@ -9,7 +9,7 @@ import {
   Animated,
 } from 'react-native';
 
-import { ShortAddBtn, IglooTextInput, LongBlueBtn } from '../../../components';
+import { ShortAddBtn, IglooTextInput, LongBlueBtn, IglooPicker } from '../../../components';
 
 function AddItem() {
   return (
@@ -95,7 +95,7 @@ function AddItem() {
               paddingBottom: 29,
             }}
           >
-            <IglooTextInput
+            <IglooPicker
               style={{
                 width: Dimensions.get('window').width - 36,
               }}
