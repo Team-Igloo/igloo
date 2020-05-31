@@ -12,9 +12,9 @@ import {
 import { LongAddBtn, FreshIndication } from '../../../components';
 
 function renderFridges() {
-  const [Fridges] = useState([1, 2, 3]);
+  const [fridges] = useState([1, 2, 3]);
 
-  return Fridges.map(function (val: number) {
+  return fridges.map(function (val: number) {
     const [value] = useState(new Animated.Value(0));
 
     useEffect(() => {

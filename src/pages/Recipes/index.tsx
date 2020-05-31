@@ -1,4 +1,4 @@
 import RecipeList from './RecipeList';
 import AddRecipes from './AddRecipes';
-
-export { RecipeList, AddRecipes };
+import RecipeDetail from './RecipeDetail';
+export { RecipeList, AddRecipes, RecipeDetail };
