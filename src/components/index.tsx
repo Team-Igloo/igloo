@@ -5,6 +5,7 @@ import ShortAddBtn from './ShortAddBtn';
 import IglooTextInput from './IglooTextInput';
 import LongBlueBtn from './LongBlueBtn';
 import IglooPicker from './IglooPicker';
+import IglooPlusBtn from './IglooPlusBtn';
 
 export {
   LongAddBtn,
@@ -14,4 +15,5 @@ export {
   IglooTextInput,
   LongBlueBtn,
   IglooPicker,
+  IglooPlusBtn,
 };

@@ -9,9 +9,9 @@ import {
   Animated,
 } from 'react-native';
 
-import { LongAddBtn, FreshIndication, ItemCard, ShortAddBtn } from '../../../components';
+import { ItemCard, IglooPlusBtn } from '../../../components';
 
-function rederItems(data: object) {
+function rederRecipes(data: object) {
   const [value] = useState([
     [1, 1, 1],
     [2, 2, 2],
@@ -26,7 +26,7 @@ function rederItems(data: object) {
               <Text
                 style={{ fontSize: 20, marginLeft: 19, fontWeight: 'normal', fontStyle: 'normal' }}
               >
-                유효기간이 곧 만료되는 상품
+                냉장고 재료 추천 레시피
               </Text>
               <View style={{ flex: 1 }}></View>
               <TouchableOpacity
@@ -68,27 +68,21 @@ function rederItems(data: object) {
   );
 }
 
-function FridgeDetail() {
+function RecipeList() {
   return (
     <View style={{ flex: 1 }}>
       <View style={{ marginTop: 41, marginLeft: 19, flexDirection: 'row', alignItems: 'center' }}>
-        <Text style={{ fontSize: 27, fontWeight: 'normal', fontStyle: 'normal' }}>냉장고</Text>
-        <FreshIndication style={{ marginLeft: 12 }} val={1}></FreshIndication>
+        <Text style={{ fontSize: 27, fontWeight: 'normal', fontStyle: 'normal' }}>추천 레시피</Text>
+        <View
+          style={{
+            flex: 1,
+          }}
+        ></View>
+        <IglooPlusBtn style={{ marginRight: 18 }}></IglooPlusBtn>
       </View>
-      <View
-        style={{
-          alignItems: 'center',
-          marginTop: 24,
-        }}
-      >
-        <LongAddBtn>상품</LongAddBtn>
-      </View>
-      <ScrollView style={{ marginTop: 24 }}>
-        {/* <ItemCard></ItemCard> */}
-        {rederItems()}
-      </ScrollView>
+      <ScrollView style={{ marginTop: 24 }}>{rederRecipes()}</ScrollView>
     </View>
   );
 }
 
-export default FridgeDetail;
+export default RecipeList;
