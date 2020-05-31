@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { FridgeList, FridgeDetail, AddItem } from '../../pages/Main';
-import { RecipeList } from '../../pages/Recipes';
+import { RecipeList, AddRecipes } from '../../pages/Recipes';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator, StackNavigationProp } from '@react-navigation/stack';
@@ -22,6 +22,7 @@ type MainStackParamList = {
 
 type RecipesStackParamList = {
   RecipeList: undefined;
+  AddRecipes: undefined;
 };
 
 //
@@ -31,7 +32,9 @@ type FridgeDetailScreenNavigationProp = StackNavigationProp<MainStackParamList, 
 type AddItemScreenNavigationProp = StackNavigationProp<MainStackParamList, 'AddItem'>;
 
 type RecipeListScreenNavigationProp = StackNavigationProp<RecipesStackParamList, 'RecipeList'>;
+type AddRecipesScreenNavigationProp = StackNavigationProp<RecipesStackParamList, 'AddRecipes'>;
 
+//
 type FridgeListProps = {
   navigation: FridgeListScreenNavigationProp;
 };
@@ -44,6 +47,9 @@ type AddItemProps = {
 
 type RecipeListProps = {
   navigation: RecipeListScreenNavigationProp;
+};
+type AddRecipesProps = {
+  navigation: AddRecipesScreenNavigationProp;
 };
 
 //stacks
@@ -72,8 +78,9 @@ function Main() {
 
 function Recipes() {
   return (
-    <recipesStack.Navigator initialRouteName='RecipeList' headerMode='none'>
+    <recipesStack.Navigator initialRouteName='AddRecipes' headerMode='none'>
       <recipesStack.Screen name='RecipeList' component={renderRecipeList} />
+      <recipesStack.Screen name='AddRecipes' component={renderAddRecipes} />
     </recipesStack.Navigator>
   );
 }
@@ -96,6 +103,9 @@ function renderRecipeList({ navigation }: RecipeListProps) {
   return <RecipeList />;
 }
 
+function renderAddRecipes({ navigation }: AddRecipesProps) {
+  return <AddRecipes />;
+}
 // navigatior
 
 function AppNavigator() {

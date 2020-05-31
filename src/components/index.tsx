@@ -6,6 +6,7 @@ import IglooTextInput from './IglooTextInput';
 import LongBlueBtn from './LongBlueBtn';
 import IglooPicker from './IglooPicker';
 import IglooPlusBtn from './IglooPlusBtn';
+import PictureSelectBox from './PictureSelectBox';
 
 export {
   LongAddBtn,
@@ -16,4 +17,5 @@ export {
   LongBlueBtn,
   IglooPicker,
   IglooPlusBtn,
+  PictureSelectBox,
 };
