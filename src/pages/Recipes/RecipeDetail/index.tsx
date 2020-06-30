@@ -1,19 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import {
-  View,
-  Text,
-  ScrollView,
-  TouchableOpacity,
-  Dimensions,
-  Platform,
-  Animated,
-  Image,
-} from 'react-native';
+import RecipeCard from '@components/RecipeCard';
+import * as React from 'react';
+import { Image, ScrollView, Text, View } from 'react-native';
 
-import { RecipeCard } from '../../../components';
-
-function renderRecipeCards() {
-  const [process] = useState([1, 1, 1, 1, 1, 1, 1, 1, 1, 1]);
+function RenderRecipeCards() {
+  const [process] = React.useState([1, 1, 1, 1, 1, 1, 1, 1, 1, 1]);
   return (
     <View>
       <Text
@@ -26,7 +16,7 @@ function renderRecipeCards() {
         총 7단계, 난이도 최상
       </Text>
       {process.map(function () {
-        return <RecipeCard style={{ marginTop: 19 }}></RecipeCard>;
+        return <RecipeCard style={{ marginTop: 19 }} data={{}} />;
       })}
     </View>
   );
@@ -36,10 +26,7 @@ function RecipeDetail() {
   return (
     <View style={{ flex: 1 }}>
       <View>
-        <Image
-          source={require('../../../dummy/test.png')}
-          style={{ width: '100%', height: 263 }}
-        ></Image>
+        <Image source={require('../../../dummy/test.png')} style={{ width: '100%', height: 263 }} />
         <View
           style={{
             width: '100%',
@@ -49,7 +36,7 @@ function RecipeDetail() {
             opacity: 0.41,
             flexDirection: 'column-reverse',
           }}
-        ></View>
+        />
         <View
           style={{
             width: '100%',
@@ -76,9 +63,9 @@ function RecipeDetail() {
             >
               상추 레시피
             </Text>
-            <View style={{ flex: 1 }}></View>
+            <View style={{ flex: 1 }} />
             <View style={{ flexDirection: 'row', alignItems: 'center', marginRight: 23 }}>
-              <View style={{ width: 22, height: 22, backgroundColor: 'red' }}></View>
+              <View style={{ width: 22, height: 22, backgroundColor: 'red' }} />
               <Text
                 style={{
                   color: 'white',
@@ -103,7 +90,7 @@ function RecipeDetail() {
           paddingTop: 19,
         }}
       >
-        {renderRecipeCards()}
+        <RenderRecipeCards />
       </ScrollView>
     </View>
   );

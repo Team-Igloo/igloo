@@ -1,17 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import * as React from 'react';
 import {
-  View,
-  Text,
-  ScrollView,
-  TouchableOpacity,
-  Dimensions,
   Platform,
-  Animated,
+  StyleProp,
+  Text,
   TextInput,
+  TouchableOpacity,
+  View,
+  ViewStyle,
 } from 'react-native';
 
 type boxProps = {
-  style: object;
+  style: StyleProp<ViewStyle>;
 };
 
 function PictureSelectBox({ style }: boxProps) {
@@ -75,7 +74,7 @@ function PictureSelectBox({ style }: boxProps) {
               width: 21,
               backgroundColor: 'red',
             }}
-          ></View>
+          />
           <Text
             style={{
               marginTop: 9,
@@ -89,8 +88,8 @@ function PictureSelectBox({ style }: boxProps) {
         </View>
       </TouchableOpacity>
       <TextInput
-        textAlignVertical={'top'}
-        placeholder={'단계 상세설명을 적어주세요'}
+        textAlignVertical='top'
+        placeholder='단계 상세설명을 적어주세요'
         style={[
           { height: 77, borderRadius: 15, flex: 1, marginLeft: 11 },
           Platform.OS === 'android'
@@ -104,7 +103,7 @@ function PictureSelectBox({ style }: boxProps) {
                 shadowRadius: 6,
               },
         ]}
-      ></TextInput>
+      />
     </View>
   );
 }

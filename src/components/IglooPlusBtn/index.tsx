@@ -1,17 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import {
-  View,
-  Text,
-  ScrollView,
-  TouchableOpacity,
-  Dimensions,
-  Platform,
-  Animated,
-  TextInput,
-} from 'react-native';
+import * as React from 'react';
+import { Platform, StyleProp, TouchableOpacity, View, ViewStyle } from 'react-native';
 
 type BtnProps = {
-  style: object;
+  style: StyleProp<ViewStyle>;
 };
 
 function IglooPlusBtn({ style }: BtnProps) {
@@ -38,7 +29,7 @@ function IglooPlusBtn({ style }: BtnProps) {
         style,
       ]}
     >
-      <View style={{ width: 21, height: 21, backgroundColor: 'red' }}></View>
+      <View style={{ width: 21, height: 21, backgroundColor: 'red' }} />
     </TouchableOpacity>
   );
 }

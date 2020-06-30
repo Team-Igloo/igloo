@@ -1,18 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import {
-  View,
-  Text,
-  ScrollView,
-  TouchableOpacity,
-  Dimensions,
-  Platform,
-  Animated,
-} from 'react-native';
+import IglooPlusBtn from '@components/IglooPlusBtn';
+import ItemCard from '@components/ItemCard';
+import * as React from 'react';
+import { ScrollView, Text, TouchableOpacity, View } from 'react-native';
 
-import { ItemCard, IglooPlusBtn } from '../../../components';
-
-function rederRecipes(data: object) {
-  const [value] = useState([
+function RenderRecipes() {
+  const [value] = React.useState([
     [1, 1, 1],
     [2, 2, 2],
     [3, 3, 3],
@@ -28,7 +20,7 @@ function rederRecipes(data: object) {
               >
                 냉장고 재료 추천 레시피
               </Text>
-              <View style={{ flex: 1 }}></View>
+              <View style={{ flex: 1 }} />
               <TouchableOpacity
                 style={{
                   marginRight: 19,
@@ -48,7 +40,7 @@ function rederRecipes(data: object) {
             </View>
             <ScrollView
               showsHorizontalScrollIndicator={false}
-              horizontal={true}
+              horizontal
               contentContainerStyle={{
                 flexDirection: 'row',
                 justifyContent: 'center',
@@ -57,8 +49,8 @@ function rederRecipes(data: object) {
                 paddingBottom: 29,
               }}
             >
-              {category.map(function (item: number) {
-                return <ItemCard style={{ marginLeft: 16 }}></ItemCard>;
+              {category.map(function () {
+                return <ItemCard style={{ marginLeft: 16 }} data={{}} />;
               })}
             </ScrollView>
           </>
@@ -77,10 +69,12 @@ function RecipeList() {
           style={{
             flex: 1,
           }}
-        ></View>
-        <IglooPlusBtn style={{ marginRight: 18 }}></IglooPlusBtn>
+        />
+        <IglooPlusBtn style={{ marginRight: 18 }} />
       </View>
-      <ScrollView style={{ marginTop: 24 }}>{rederRecipes()}</ScrollView>
+      <ScrollView style={{ marginTop: 24 }}>
+        <RenderRecipes />
+      </ScrollView>
     </View>
   );
 }

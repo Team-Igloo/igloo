@@ -1,18 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import {
-  View,
-  Text,
-  ScrollView,
-  TouchableOpacity,
-  Dimensions,
-  Platform,
-  Animated,
-} from 'react-native';
+import FreshIndication from '@components/FreshIndication';
+import ItemCard from '@components/ItemCard';
+import LongAddBtn from '@components/LongAddBtn';
+import * as React from 'react';
+import { ScrollView, Text, TouchableOpacity, View } from 'react-native';
 
-import { LongAddBtn, FreshIndication, ItemCard, ShortAddBtn } from '../../../components';
-
-function rederItems(data: object) {
-  const [value] = useState([
+function RenderItems() {
+  const [value] = React.useState([
     [1, 1, 1],
     [2, 2, 2],
     [3, 3, 3],
@@ -28,7 +21,7 @@ function rederItems(data: object) {
               >
                 유효기간이 곧 만료되는 상품
               </Text>
-              <View style={{ flex: 1 }}></View>
+              <View style={{ flex: 1 }} />
               <TouchableOpacity
                 style={{
                   marginRight: 19,
@@ -48,7 +41,7 @@ function rederItems(data: object) {
             </View>
             <ScrollView
               showsHorizontalScrollIndicator={false}
-              horizontal={true}
+              horizontal
               contentContainerStyle={{
                 flexDirection: 'row',
                 justifyContent: 'center',
@@ -57,8 +50,8 @@ function rederItems(data: object) {
                 paddingBottom: 29,
               }}
             >
-              {category.map(function (item: number) {
-                return <ItemCard style={{ marginLeft: 16 }}></ItemCard>;
+              {category.map(function () {
+                return <ItemCard style={{ marginLeft: 16 }} data={{}} />;
               })}
             </ScrollView>
           </>
@@ -73,7 +66,7 @@ function FridgeDetail() {
     <View style={{ flex: 1 }}>
       <View style={{ marginTop: 41, marginLeft: 19, flexDirection: 'row', alignItems: 'center' }}>
         <Text style={{ fontSize: 27, fontWeight: 'normal', fontStyle: 'normal' }}>냉장고</Text>
-        <FreshIndication style={{ marginLeft: 12 }} val={1}></FreshIndication>
+        <FreshIndication style={{ marginLeft: 12 }} val={1} />
       </View>
       <View
         style={{
@@ -81,11 +74,11 @@ function FridgeDetail() {
           marginTop: 24,
         }}
       >
-        <LongAddBtn>상품</LongAddBtn>
+        <LongAddBtn style={{}}>상품</LongAddBtn>
       </View>
       <ScrollView style={{ marginTop: 24 }}>
         {/* <ItemCard></ItemCard> */}
-        {rederItems()}
+        <RenderItems />
       </ScrollView>
     </View>
   );

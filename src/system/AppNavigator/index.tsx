@@ -1,121 +1,77 @@
-import React from 'react';
-
-import { FridgeList, FridgeDetail, AddItem } from '../../pages/Main';
-import { RecipeList, AddRecipes, RecipeDetail } from '../../pages/Recipes';
-
+import colors from '@constants/colors';
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator, StackNavigationProp } from '@react-navigation/stack';
+import { StackNavigationOptions, createStackNavigator } from '@react-navigation/stack';
+import * as React from 'react';
 
-/// types
-type RootStackParamList = {
-  Main: undefined;
-  Recipes: undefined;
-};
+import { AddItem, FridgeDetail, FridgeList } from '../../pages/Main';
+import { AddRecipes, RecipeDetail, RecipeList } from '../../pages/Recipes';
 
-//
-
-type MainStackParamList = {
-  FridgeList: undefined;
-  FridgeDetail: undefined;
-  AddItem: undefined;
-};
-
-type RecipesStackParamList = {
-  RecipeList: undefined;
-  AddRecipes: undefined;
-  RecipeDetail: undefined;
-};
-
-//
-
-type FridgeListScreenNavigationProp = StackNavigationProp<MainStackParamList, 'FridgeList'>;
-type FridgeDetailScreenNavigationProp = StackNavigationProp<MainStackParamList, 'FridgeDetail'>;
-type AddItemScreenNavigationProp = StackNavigationProp<MainStackParamList, 'AddItem'>;
-
-type RecipeListScreenNavigationProp = StackNavigationProp<RecipesStackParamList, 'RecipeList'>;
-type AddRecipesScreenNavigationProp = StackNavigationProp<RecipesStackParamList, 'AddRecipes'>;
-type RecipeDetailScreenNavigationProp = StackNavigationProp<RecipesStackParamList, 'RecipeDetail'>;
-
-//
-type FridgeListProps = {
-  navigation: FridgeListScreenNavigationProp;
-};
-type FridgeDetailProps = {
-  navigation: FridgeDetailScreenNavigationProp;
-};
-type AddItemProps = {
-  navigation: AddItemScreenNavigationProp;
-};
-
-type RecipeListProps = {
-  navigation: RecipeListScreenNavigationProp;
-};
-type AddRecipesProps = {
-  navigation: AddRecipesScreenNavigationProp;
-};
-type RecipeDetailProps = {
-  navigation: RecipeDetailScreenNavigationProp;
-};
-
-//stacks
-const rootStack = createStackNavigator<RootStackParamList>();
-const mainStack = createStackNavigator<MainStackParamList>();
-const recipesStack = createStackNavigator<RecipesStackParamList>();
-
-function Root() {
-  return (
-    <rootStack.Navigator initialRouteName='Recipes' headerMode='none'>
-      <rootStack.Screen name='Main' component={Main} />
-      <rootStack.Screen name='Recipes' component={Recipes} />
-    </rootStack.Navigator>
-  );
+interface RootStackParamList extends Record<string, Record<string, unknown> | undefined> {
+  RecipeList: Record<string, unknown>;
+  AddRecipes: Record<string, unknown>;
+  RecipeDetail: Record<string, unknown>;
+  FridgeList: Record<string, unknown>;
+  FridgeDetail: Record<string, unknown>;
+  AddItem: Record<string, unknown>;
+  Recipes: Record<string, unknown>;
+  Fridge: Record<string, unknown>;
 }
 
-function Main() {
+type FridgeStackScreenNameList = 'FridgeList' | 'FridgeDetail' | 'AddItem';
+type RecipesStackScreenNameList = 'RecipeDetail' | 'RecipeList' | 'AddRecipes';
+
+// stacks
+const RootStack = createStackNavigator<RootStackParamList>();
+const FridgeStack = createStackNavigator<Pick<RootStackParamList, FridgeStackScreenNameList>>();
+const RecipesStack = createStackNavigator<Pick<RootStackParamList, RecipesStackScreenNameList>>();
+
+const screenOptions: StackNavigationOptions = {
+  headerTitleStyle: {
+    fontSize: 27,
+    lineHeight: 31,
+    color: colors.black,
+  },
+  headerTitleAlign: 'left',
+  headerStyle: {
+    borderBottomWidth: 0,
+    elevation: 0,
+    shadowOpacity: 0,
+  },
+  cardStyle: {
+    backgroundColor: colors.white,
+    flex: 1,
+  },
+};
+
+function Fridge() {
   return (
-    <mainStack.Navigator initialRouteName='AddItem' headerMode='none'>
-      <mainStack.Screen name='FridgeList' component={renderFridgeList} />
-      <mainStack.Screen name='FridgeDetail' component={renderFridgeDetail} />
-      <mainStack.Screen name='AddItem' component={renderAddItem} />
-    </mainStack.Navigator>
+    <FridgeStack.Navigator screenOptions={screenOptions}>
+      <FridgeStack.Screen name='FridgeDetail' component={FridgeDetail} />
+      <FridgeStack.Screen name='AddItem' component={AddItem} />
+    </FridgeStack.Navigator>
   );
 }
 
 function Recipes() {
   return (
-    <recipesStack.Navigator initialRouteName='RecipeDetail' headerMode='none'>
-      <recipesStack.Screen name='RecipeList' component={renderRecipeList} />
-      <recipesStack.Screen name='AddRecipes' component={renderAddRecipes} />
-      <recipesStack.Screen name='RecipeDetail' component={renderRecipeDetail} />
-    </recipesStack.Navigator>
+    <RecipesStack.Navigator screenOptions={screenOptions}>
+      <RecipesStack.Screen name='RecipeDetail' component={RecipeDetail} />
+      <RecipesStack.Screen name='RecipeList' component={RecipeList} />
+      <RecipesStack.Screen name='AddRecipes' component={AddRecipes} />
+    </RecipesStack.Navigator>
   );
 }
 
-//render functions
-
-function renderFridgeList({ navigation }: FridgeListProps) {
-  return <FridgeList />;
+function Root() {
+  return (
+    <RootStack.Navigator screenOptions={screenOptions}>
+      <RootStack.Screen name='FridgeList' component={FridgeList} />
+      <RootStack.Screen name='Fridge' component={Fridge} />
+      <RootStack.Screen name='Recipes' component={Recipes} />
+    </RootStack.Navigator>
+  );
 }
 
-function renderFridgeDetail({ navigation }: FridgeDetailProps) {
-  return <FridgeDetail />;
-}
-
-function renderAddItem({ navigation }: AddItemProps) {
-  return <AddItem />;
-}
-
-function renderRecipeList({ navigation }: RecipeListProps) {
-  return <RecipeList />;
-}
-
-function renderAddRecipes({ navigation }: AddRecipesProps) {
-  return <AddRecipes />;
-}
-
-function renderRecipeDetail({ navigation }) {
-  return <RecipeDetail />;
-}
 // navigatior
 
 function AppNavigator() {

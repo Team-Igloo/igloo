@@ -1,24 +1,15 @@
-import React, { useState, useEffect } from 'react';
-import {
-  View,
-  Text,
-  ScrollView,
-  TouchableOpacity,
-  Dimensions,
-  Platform,
-  Animated,
-  TextInput,
-} from 'react-native';
 import { Picker } from '@react-native-community/picker';
+import * as React from 'react';
+import { Platform, StyleProp, View, ViewStyle } from 'react-native';
 
 type BtnProps = {
   children: string;
-  style: object;
+  style: StyleProp<ViewStyle>;
   data: string;
 };
 
-function IglooPicker({ children, style }: BtnProps) {
-  const [select, setSelect] = useState('');
+function IglooPicker({ style }: BtnProps) {
+  const [select, setSelect] = React.useState('');
   return (
     <View
       style={[
@@ -46,8 +37,8 @@ function IglooPicker({ children, style }: BtnProps) {
     >
       <Picker
         selectedValue={select}
-        onValueChange={(itemValue, itemIndex) => {
-          setSelect(itemValue);
+        onValueChange={itemValue => {
+          setSelect(itemValue as string);
         }}
       >
         <Picker.Item label='육류' value='meats' />

@@ -1,20 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import {
-  View,
-  Text,
-  ScrollView,
-  TouchableOpacity,
-  Dimensions,
-  Platform,
-  Image,
-} from 'react-native';
+import * as React from 'react';
+import { Image, Platform, StyleProp, Text, TouchableOpacity, View, ViewStyle } from 'react-native';
 
 type cardProps = {
-  style: object;
-  data: object;
+  style: StyleProp<ViewStyle>;
+  data: unknown;
 };
 
-function ItemCard({ style, data }: cardProps) {
+function ItemCard({ style }: cardProps) {
   return (
     <TouchableOpacity
       style={[
@@ -35,10 +27,7 @@ function ItemCard({ style, data }: cardProps) {
       ]}
     >
       <View style={{ paddingTop: 10, paddingLeft: 12, paddingRight: 12, paddingBottom: 9 }}>
-        <Image
-          source={require('../../dummy/test.png')}
-          style={{ width: '100%', height: 93.4 }}
-        ></Image>
+        <Image source={require('../../dummy/test.png')} style={{ width: '100%', height: 93.4 }} />
       </View>
       <View style={{ flexDirection: 'row', marginLeft: 14, alignItems: 'center' }}>
         <Text
@@ -81,7 +70,7 @@ function ItemCard({ style, data }: cardProps) {
               height: 14,
               backgroundColor: 'black',
             }}
-          ></View>
+          />
           <Text
             style={{
               fontSize: 10,

@@ -1,9 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import { View, Text, ScrollView, TouchableOpacity, Dimensions, Platform } from 'react-native';
+import * as React from 'react';
+import {
+  Dimensions,
+  Platform,
+  StyleProp,
+  Text,
+  TouchableOpacity,
+  View,
+  ViewStyle,
+} from 'react-native';
 
 type BtnProps = {
   children: string;
-  style: object;
+  style: StyleProp<ViewStyle>;
 };
 
 function LongAddBtn({ children, style }: BtnProps) {
@@ -17,7 +25,7 @@ function LongAddBtn({ children, style }: BtnProps) {
           justifyContent: 'center',
           alignItems: 'center',
         },
-        Platform.OS == 'android'
+        Platform.OS === 'android'
           ? { elevation: 3 }
           : {
               shadowColor: 'rgba(0, 0, 0, 0.16)',

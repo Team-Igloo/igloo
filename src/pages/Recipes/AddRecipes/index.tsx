@@ -1,22 +1,13 @@
-import React, { useState, useEffect } from 'react';
 import {
-  View,
-  Text,
-  ScrollView,
-  TouchableOpacity,
-  Dimensions,
-  Platform,
-  Animated,
-} from 'react-native';
-
-import {
-  ShortAddBtn,
-  IglooTextInput,
-  LongBlueBtn,
   IglooPicker,
+  IglooTextInput,
   LongAddBtn,
+  LongBlueBtn,
   PictureSelectBox,
-} from '../../../components';
+  ShortAddBtn,
+} from '@components/index';
+import * as React from 'react';
+import { Dimensions, ScrollView, Text, View } from 'react-native';
 
 function AddRecipes() {
   return (
@@ -94,7 +85,7 @@ function AddRecipes() {
               style={{
                 width: Dimensions.get('window').width - 36,
               }}
-            ></IglooTextInput>
+            />
           </View>
         </View>
         <View>

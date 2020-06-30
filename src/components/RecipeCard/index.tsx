@@ -1,20 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import * as React from 'react';
 import {
-  View,
-  Text,
-  ScrollView,
-  TouchableOpacity,
   Dimensions,
-  Platform,
   Image,
+  Platform,
+  StyleProp,
+  Text,
+  TouchableOpacity,
+  View,
+  ViewStyle,
 } from 'react-native';
 
 type cardProps = {
-  style: object;
-  data: object;
+  style: StyleProp<ViewStyle>;
+  data: unknown;
 };
 
-function RecipeCard({ style, data }: cardProps) {
+function RecipeCard({ style }: cardProps) {
   return (
     <TouchableOpacity
       style={[
@@ -42,7 +43,7 @@ function RecipeCard({ style, data }: cardProps) {
         style,
       ]}
     >
-      <Image source={require('../../dummy/test.png')} style={{ width: 98, height: 98 }}></Image>
+      <Image source={require('../../dummy/test.png')} style={{ width: 98, height: 98 }} />
       <View style={{ flex: 1 }}>
         <Text
           style={{

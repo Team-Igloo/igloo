@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { View, Text, ScrollView, TouchableOpacity, Dimensions, Platform } from 'react-native';
+import * as React from 'react';
+import { StyleProp, Text, View, ViewStyle } from 'react-native';
 
 type indicationProps = {
   val: number;
-  style: object;
+  style: StyleProp<ViewStyle>;
 };
 
 function FreshIndication({ val, style }: indicationProps) {
@@ -34,7 +34,8 @@ function FreshIndication({ val, style }: indicationProps) {
         </Text>
       </View>
     );
-  } else if (val === 2) {
+  }
+  if (val === 2) {
     return (
       <View
         style={[
@@ -61,34 +62,33 @@ function FreshIndication({ val, style }: indicationProps) {
         </Text>
       </View>
     );
-  } else {
-    return (
-      <View
-        style={[
-          {
-            width: 40,
-            height: 23,
-            borderRadius: 6,
-            backgroundColor: 'rgba(207, 85, 61,1)',
-            justifyContent: 'center',
-            alignItems: 'center',
-          },
-          style,
-        ]}
-      >
-        <Text
-          style={{
-            fontSize: 15,
-            fontWeight: 'normal',
-            fontStyle: 'normal',
-            color: 'rgba(255,255,255,1)',
-          }}
-        >
-          나쁨
-        </Text>
-      </View>
-    );
   }
+  return (
+    <View
+      style={[
+        {
+          width: 40,
+          height: 23,
+          borderRadius: 6,
+          backgroundColor: 'rgba(207, 85, 61,1)',
+          justifyContent: 'center',
+          alignItems: 'center',
+        },
+        style,
+      ]}
+    >
+      <Text
+        style={{
+          fontSize: 15,
+          fontWeight: 'normal',
+          fontStyle: 'normal',
+          color: 'rgba(255,255,255,1)',
+        }}
+      >
+        나쁨
+      </Text>
+    </View>
+  );
 }
 
 export default FreshIndication;

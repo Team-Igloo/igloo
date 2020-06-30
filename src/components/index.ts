@@ -1,15 +1,15 @@
-import LongAddBtn from './LongAddBtn';
 import FreshIndication from './FreshIndication';
-import ItemCard from './ItemCard';
-import ShortAddBtn from './ShortAddBtn';
-import IglooTextInput from './IglooTextInput';
-import LongBlueBtn from './LongBlueBtn';
 import IglooPicker from './IglooPicker';
 import IglooPlusBtn from './IglooPlusBtn';
+import IglooTextInput from './IglooTextInput';
+import ItemCard from './ItemCard';
+import LongAddBtn from './LongAddBtn';
+import LongBlueBtn from './LongBlueBtn';
 import PictureSelectBox from './PictureSelectBox';
 import RecipeCard from './RecipeCard';
+import ShortAddBtn from './ShortAddBtn';
 
-export {
+export default {
   LongAddBtn,
   FreshIndication,
   ItemCard,

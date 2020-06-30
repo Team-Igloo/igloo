@@ -1,15 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import {
-  View,
-  Text,
-  ScrollView,
-  TouchableOpacity,
-  Dimensions,
-  Platform,
-  Animated,
-} from 'react-native';
-
-import { ShortAddBtn, IglooTextInput, LongBlueBtn, IglooPicker } from '../../../components';
+import IglooPicker from '@components/IglooPicker';
+import IglooTextInput from '@components/IglooTextInput';
+import LongBlueBtn from '@components/LongBlueBtn';
+import ShortAddBtn from '@components/ShortAddBtn';
+import * as React from 'react';
+import { Dimensions, Text, View } from 'react-native';
 
 function AddItem() {
   return (

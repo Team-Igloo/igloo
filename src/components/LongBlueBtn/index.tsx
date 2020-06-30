@@ -1,18 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import {
-  View,
-  Text,
-  ScrollView,
-  TouchableOpacity,
-  Dimensions,
-  Platform,
-  Animated,
-  TextInput,
-} from 'react-native';
+import * as React from 'react';
+import { Platform, StyleProp, Text, TouchableOpacity, ViewStyle } from 'react-native';
 
 type BtnProps = {
   children: string;
-  style: object;
+  style: StyleProp<ViewStyle>;
 };
 
 function LongBlueBtn({ children, style }: BtnProps) {
