@@ -15,7 +15,7 @@ type cardProps = {
   data: unknown;
 };
 
-function RecipeCard({ style }: cardProps) {
+const RecipeCard: React.FC<cardProps> = ({ style }) => {
   return (
     <TouchableOpacity
       style={[
@@ -57,6 +57,6 @@ function RecipeCard({ style }: cardProps) {
       </View>
     </TouchableOpacity>
   );
-}
+};
 
 export default RecipeCard;

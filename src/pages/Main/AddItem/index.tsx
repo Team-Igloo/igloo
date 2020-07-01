@@ -5,7 +5,7 @@ import ShortAddBtn from '@components/ShortAddBtn';
 import * as React from 'react';
 import { Dimensions, Text, View } from 'react-native';
 
-function AddItem() {
+const AddItem: React.FC = () => {
   return (
     <View style={{ flex: 1 }}>
       <View>
@@ -130,6 +130,6 @@ function AddItem() {
       </View>
     </View>
   );
-}
+};
 
 export default AddItem;

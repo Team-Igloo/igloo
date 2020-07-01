@@ -2,9 +2,36 @@ import FreshIndication from '@components/FreshIndication';
 import ItemCard from '@components/ItemCard';
 import LongAddBtn from '@components/LongAddBtn';
 import * as React from 'react';
-import { ScrollView, Text, TouchableOpacity, View } from 'react-native';
+import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
-function RenderItems() {
+const styles = StyleSheet.create({
+  fridgeDetailContainer: {
+    flex: 1,
+  },
+  fridgeDetailNameTextContainer: {
+    marginTop: 41,
+    marginLeft: 19,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  fridgeDetailNameText: {
+    fontSize: 27,
+    fontWeight: 'normal',
+    fontStyle: 'normal',
+  },
+  fridgeDetailFreshIndicator: {
+    marginLeft: 12,
+  },
+  fridgeDetailLongBtnContainer: {
+    alignItems: 'center',
+    marginTop: 24,
+  },
+  fridgeDetailCategoryContainer: {
+    marginTop: 24,
+  },
+});
+
+const RenderItems = () => {
   const [value] = React.useState([
     [1, 1, 1],
     [2, 2, 2],
@@ -59,29 +86,23 @@ function RenderItems() {
       })}
     </View>
   );
-}
+};
 
-function FridgeDetail() {
+const FridgeDetail: React.FC = () => {
   return (
-    <View style={{ flex: 1 }}>
-      <View style={{ marginTop: 41, marginLeft: 19, flexDirection: 'row', alignItems: 'center' }}>
-        <Text style={{ fontSize: 27, fontWeight: 'normal', fontStyle: 'normal' }}>냉장고</Text>
-        <FreshIndication style={{ marginLeft: 12 }} val={1} />
+    <View style={styles.fridgeDetailContainer}>
+      <View style={styles.fridgeDetailNameTextContainer}>
+        <Text style={styles.fridgeDetailNameText}>냉장고</Text>
+        <FreshIndication style={styles.fridgeDetailFreshIndicator} val={1} />
       </View>
-      <View
-        style={{
-          alignItems: 'center',
-          marginTop: 24,
-        }}
-      >
-        <LongAddBtn style={{}}>상품</LongAddBtn>
+      <View style={styles.fridgeDetailLongBtnContainer}>
+        <LongAddBtn>상품</LongAddBtn>
       </View>
-      <ScrollView style={{ marginTop: 24 }}>
-        {/* <ItemCard></ItemCard> */}
+      <ScrollView style={styles.fridgeDetailCategoryContainer}>
         <RenderItems />
       </ScrollView>
     </View>
   );
-}
+};
 
 export default FridgeDetail;

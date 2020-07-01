@@ -8,7 +8,7 @@ type BtnProps = {
   data: string;
 };
 
-function IglooPicker({ style }: BtnProps) {
+const IglooPicker: React.FC<BtnProps> = ({ style }) => {
   const [select, setSelect] = React.useState('');
   return (
     <View
@@ -46,6 +46,6 @@ function IglooPicker({ style }: BtnProps) {
       </Picker>
     </View>
   );
-}
+};
 
 export default IglooPicker;

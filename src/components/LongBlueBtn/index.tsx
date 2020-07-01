@@ -6,7 +6,7 @@ type BtnProps = {
   style: StyleProp<ViewStyle>;
 };
 
-function LongBlueBtn({ children, style }: BtnProps) {
+const LongBlueBtn: React.FC<BtnProps> = ({ children, style }) => {
   return (
     <TouchableOpacity
       style={[
@@ -44,6 +44,6 @@ function LongBlueBtn({ children, style }: BtnProps) {
       </Text>
     </TouchableOpacity>
   );
-}
+};
 
 export default LongBlueBtn;

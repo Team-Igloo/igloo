@@ -6,7 +6,7 @@ type indicationProps = {
   style: StyleProp<ViewStyle>;
 };
 
-function FreshIndication({ val, style }: indicationProps) {
+const FreshIndication: React.FC<indicationProps> = ({ val, style }) => {
   if (val === 1) {
     return (
       <View
@@ -89,6 +89,6 @@ function FreshIndication({ val, style }: indicationProps) {
       </Text>
     </View>
   );
-}
+};
 
 export default FreshIndication;

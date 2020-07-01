@@ -5,7 +5,7 @@ type BtnProps = {
   style: StyleProp<ViewStyle>;
 };
 
-function IglooPlusBtn({ style }: BtnProps) {
+const IglooPlusBtn: React.FC = style => {
   return (
     <TouchableOpacity
       style={[
@@ -32,6 +32,6 @@ function IglooPlusBtn({ style }: BtnProps) {
       <View style={{ width: 21, height: 21, backgroundColor: 'red' }} />
     </TouchableOpacity>
   );
-}
+};
 
 export default IglooPlusBtn;

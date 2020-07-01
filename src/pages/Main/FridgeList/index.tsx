@@ -1,9 +1,30 @@
 import Fridge from '@components/Fridge';
+import LongAddBtn from '@components/LongAddBtn';
 import * as React from 'react';
-import { FlatList, ListRenderItemInfo, StyleSheet, Text, View, ViewStyle } from 'react-native';
+import {
+  FlatList,
+  ListRenderItemInfo,
+  StyleSheet,
+  Text,
+  TextStyle,
+  View,
+  ViewStyle,
+} from 'react-native';
 import { FridgeInfo } from '../../../../@types';
 
 const styles = StyleSheet.create({
+  fridgeDetailContainer: {
+    flex: 1,
+  },
+  fridgeListTextContainer: {
+    marginLeft: 18,
+    marginTop: 41,
+  } as TextStyle,
+  fridgeListText: {
+    fontSize: 27,
+    fontWeight: 'normal',
+    fontStyle: 'normal',
+  } as TextStyle,
   fridgeListContainer: {
     marginTop: 13,
   } as ViewStyle,
@@ -11,21 +32,24 @@ const styles = StyleSheet.create({
     flexGrow: 1,
     alignItems: 'center',
   } as ViewStyle,
+  fridgeListFooterComponent: {
+    marginTop: 26,
+  } as ViewStyle,
 });
 
-function FridgeList() {
+const FridgeList: React.FC = () => {
   const [fridges] = React.useState<FridgeInfo[]>([
     {
       name: '나의 냉장고',
-      percent: 90,
+      percent: 100,
     },
     {
       name: '우리의 냉장고',
-      percent: 60,
+      percent: 66,
     },
     {
       name: '너의 냉장고',
-      percent: 20,
+      percent: 33,
     },
   ]);
 
@@ -34,17 +58,9 @@ function FridgeList() {
   }, []);
 
   return (
-    <View style={{ flex: 1 }}>
-      <View style={{ marginLeft: 18, marginTop: 41 }}>
-        <Text
-          style={{
-            fontSize: 27,
-            fontWeight: 'normal',
-            fontStyle: 'normal',
-          }}
-        >
-          냉장고를 선택해주세요.
-        </Text>
+    <View style={styles.fridgeDetailContainer}>
+      <View style={styles.fridgeListTextContainer}>
+        <Text style={styles.fridgeListText}>냉장고를 선택해주세요.</Text>
       </View>
       <FlatList
         data={fridges}
@@ -53,11 +69,13 @@ function FridgeList() {
         style={styles.fridgeListContainer}
         contentContainerStyle={styles.fridgeListContentContainer}
         ListFooterComponent={
-          <View style={{ marginTop: 26 }}>{/* <LongAddBtn>냉장고</LongAddBtn> */}</View>
+          <View style={styles.fridgeListFooterComponent}>
+            <LongAddBtn>냉장고</LongAddBtn>
+          </View>
         }
       />
     </View>
   );
-}
+};
 
 export default FridgeList;

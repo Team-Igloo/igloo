@@ -64,7 +64,7 @@ function Recipes() {
 
 function Root() {
   return (
-    <RootStack.Navigator screenOptions={screenOptions}>
+    <RootStack.Navigator initialRouteName="Fridge" screenOptions={screenOptions}>
       <RootStack.Screen name='FridgeList' component={FridgeList} />
       <RootStack.Screen name='Fridge' component={Fridge} />
       <RootStack.Screen name='Recipes' component={Recipes} />
@@ -74,12 +74,12 @@ function Root() {
 
 // navigatior
 
-function AppNavigator() {
+const AppNavigator: React.FC = () => {
   return (
     <NavigationContainer>
       <Root />
     </NavigationContainer>
   );
-}
+};
 
 export default AppNavigator;

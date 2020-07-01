@@ -1,6 +1,7 @@
 import { getWidth } from '@utils/helper';
 import * as React from 'react';
 import { Animated, Text, TouchableOpacity, View } from 'react-native';
+import FreshIndication from '@components/FreshIndication';
 import { FridgeInfo } from '../../../@types';
 
 const Fridge: React.FC<FridgeInfo> = ({ percent, name }) => {
@@ -12,7 +13,7 @@ const Fridge: React.FC<FridgeInfo> = ({ percent, name }) => {
       toValue: getWidth(-310 + 310 * (percent / 100)),
       useNativeDriver: true,
     }).start();
-  }, []);
+  }, [percent, translateX]);
 
   return (
     <TouchableOpacity
@@ -48,7 +49,13 @@ const Fridge: React.FC<FridgeInfo> = ({ percent, name }) => {
         >
           {name}
         </Text>
-        {/* <FreshIndication val={1}></FreshIndication> */}
+        {percent >= 0 && percent <= 33 ? (
+          <FreshIndication val={3} />
+        ) : percent >= 34 && percent <= 66 ? (
+          <FreshIndication val={2} />
+        ) : (
+          <FreshIndication val={1} />
+        )}
       </View>
       <View
         style={{
@@ -64,7 +71,12 @@ const Fridge: React.FC<FridgeInfo> = ({ percent, name }) => {
             width: getWidth(310),
             borderRadius: 5,
             height: 21,
-            backgroundColor: 'red',
+            backgroundColor:
+              percent >= 0 && percent <= 33
+                ? 'rgba(207, 85, 61,1)'
+                : percent >= 34 && percent <= 66
+                ? 'rgba(239, 202, 0,1)'
+                : 'rgba(51, 175, 19,1)',
             position: 'absolute',
             top: 0,
             left: 0,

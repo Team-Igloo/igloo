@@ -60,7 +60,7 @@ function RenderRecipes() {
   );
 }
 
-function RecipeList() {
+const RecipeList: React.FC = () => {
   return (
     <View style={{ flex: 1 }}>
       <View style={{ marginTop: 41, marginLeft: 19, flexDirection: 'row', alignItems: 'center' }}>
@@ -77,6 +77,6 @@ function RecipeList() {
       </ScrollView>
     </View>
   );
-}
+};
 
 export default RecipeList;

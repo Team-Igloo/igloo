@@ -15,14 +15,14 @@ function RenderRecipeCards() {
       >
         총 7단계, 난이도 최상
       </Text>
-      {process.map(function () {
+      {process.map(() => {
         return <RecipeCard style={{ marginTop: 19 }} data={{}} />;
       })}
     </View>
   );
 }
 
-function RecipeDetail() {
+const RecipeDetail: React.FC = () => {
   return (
     <View style={{ flex: 1 }}>
       <View>
@@ -94,6 +94,6 @@ function RecipeDetail() {
       </ScrollView>
     </View>
   );
-}
+};
 
 export default RecipeDetail;

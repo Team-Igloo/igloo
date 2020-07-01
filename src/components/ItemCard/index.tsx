@@ -6,7 +6,7 @@ type cardProps = {
   data: unknown;
 };
 
-function ItemCard({ style }: cardProps) {
+const ItemCard: React.FC<cardProps> = ({ style }) => {
   return (
     <TouchableOpacity
       style={[
@@ -85,6 +85,6 @@ function ItemCard({ style }: cardProps) {
       </View>
     </TouchableOpacity>
   );
-}
+};
 
 export default ItemCard;

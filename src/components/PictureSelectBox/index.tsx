@@ -13,7 +13,7 @@ type boxProps = {
   style: StyleProp<ViewStyle>;
 };
 
-function PictureSelectBox({ style }: boxProps) {
+const PictureSelectBox: React.FC<boxProps> = ({ style }) => {
   return (
     <View
       style={[
@@ -106,6 +106,6 @@ function PictureSelectBox({ style }: boxProps) {
       />
     </View>
   );
-}
+};
 
 export default PictureSelectBox;

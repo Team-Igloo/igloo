@@ -9,7 +9,7 @@ import {
 import * as React from 'react';
 import { Dimensions, ScrollView, Text, View } from 'react-native';
 
-function AddRecipes() {
+const AddRecipes: React.FC = () => {
   return (
     <ScrollView style={{ flex: 1 }}>
       <View>
@@ -154,6 +154,6 @@ function AddRecipes() {
       </View>
     </ScrollView>
   );
-}
+};
 
 export default AddRecipes;
