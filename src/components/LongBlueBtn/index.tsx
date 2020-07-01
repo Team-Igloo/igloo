@@ -1,12 +1,8 @@
 import * as React from 'react';
-import { Platform, StyleProp, Text, TouchableOpacity, ViewStyle } from 'react-native';
+import { Platform, Text, TouchableOpacity } from 'react-native';
+import { longBlueBtnProps } from '../../../@types';
 
-type BtnProps = {
-  children: string;
-  style: StyleProp<ViewStyle>;
-};
-
-const LongBlueBtn: React.FC<BtnProps> = ({ children, style }) => {
+const LongBlueBtn: React.FC<longBlueBtnProps> = ({ children, style }) => {
   return (
     <TouchableOpacity
       style={[

@@ -1,109 +1,94 @@
-import {
-  IglooPicker,
-  IglooTextInput,
-  LongAddBtn,
-  LongBlueBtn,
-  PictureSelectBox,
-  ShortAddBtn,
-} from '@components/index';
+import IglooPicker from '@components/IglooPicker';
+import IglooTextInput from '@components/IglooTextInput';
+import LongAddBtn from '@components/LongAddBtn';
+import LongBlueBtn from '@components/LongBlueBtn';
+import PictureSelectBox from '@components/PictureSelectBox';
+import ShortAddBtn from '@components/ShortAddBtn';
 import * as React from 'react';
-import { Dimensions, ScrollView, Text, View } from 'react-native';
+import { Dimensions, ScrollView, StyleSheet, Text, View } from 'react-native';
+
+const styles = StyleSheet.create({
+  addRecipesContainer: {
+    flex: 1,
+  },
+  addRecipesTitleText: {
+    fontSize: 27,
+    fontWeight: 'normal',
+    fontStyle: 'normal',
+    marginTop: 41,
+    marginLeft: 19,
+  },
+  addRecipesContentContainer: {
+    marginTop: 30,
+    paddingLeft: 18,
+    paddingRight: 18,
+  },
+  addRecipesNameText: {
+    fontSize: 20,
+    fontWeight: 'normal',
+    fontStyle: 'normal',
+  },
+  addRecipesNameContainer: {
+    paddingTop: 16,
+    paddingBottom: 19,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  addRecipesNameTextInput: {
+    width: (Dimensions.get('window').width - 51) / 2,
+  },
+  addRecipesAddPictureBtn: {
+    width: (Dimensions.get('window').width - 51) / 2,
+  },
+  addRecipesTimeContainer: {
+    paddingTop: 16,
+    paddingBottom: 19,
+  },
+  addRecipesTimeText: {
+    fontSize: 20,
+    fontWeight: 'normal',
+    fontStyle: 'normal',
+  },
+  addRecipesTimeTextInput: {
+    width: Dimensions.get('window').width - 36,
+  },
+  addRecipesDifficultyText: {
+    fontSize: 20,
+    fontWeight: 'normal',
+    fontStyle: 'normal',
+  },
+  addRecipesDifficultyContainer: {
+    paddingTop: 16,
+    paddingBottom: 32,
+  },
+});
 
 const AddRecipes: React.FC = () => {
   return (
-    <ScrollView style={{ flex: 1 }}>
+    <ScrollView style={styles.addRecipesContainer}>
       <View>
-        <Text
-          style={{
-            fontSize: 27,
-            fontWeight: 'normal',
-            fontStyle: 'normal',
-            marginTop: 41,
-            marginLeft: 19,
-          }}
-        >
-          레시피 추가
-        </Text>
+        <Text style={styles.addRecipesTitleText}>레시피 추가</Text>
       </View>
-      <View
-        style={{
-          marginTop: 30,
-          paddingLeft: 18,
-          paddingRight: 18,
-        }}
-      >
+      <View style={styles.addRecipesContentContainer}>
         <View>
-          <Text
-            style={{
-              fontSize: 20,
-              fontWeight: 'normal',
-              fontStyle: 'normal',
-            }}
-          >
-            이름
-          </Text>
-          <View
-            style={{
-              paddingTop: 16,
-              paddingBottom: 19,
-              flexDirection: 'row',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-            }}
-          >
-            <IglooTextInput
-              style={{
-                width: (Dimensions.get('window').width - 51) / 2,
-              }}
-            />
-            <ShortAddBtn
-              style={{
-                width: (Dimensions.get('window').width - 51) / 2,
-              }}
-            >
-              사진 추가
-            </ShortAddBtn>
+          <Text style={styles.addRecipesNameText}>이름</Text>
+          <View style={styles.addRecipesNameContainer}>
+            <IglooTextInput style={styles.addRecipesNameTextInput} />
+            <ShortAddBtn style={styles.addRecipesAddPictureBtn}>사진 추가</ShortAddBtn>
           </View>
         </View>
         <View>
-          <Text
-            style={{
-              fontSize: 20,
-              fontWeight: 'normal',
-              fontStyle: 'normal',
-            }}
-          >
-            소요 시간(분)
-          </Text>
-          <View
-            style={{
-              paddingTop: 16,
-              paddingBottom: 19,
-            }}
-          >
-            <IglooTextInput
-              style={{
-                width: Dimensions.get('window').width - 36,
-              }}
-            />
+          <Text style={styles.addRecipesTimeText}>소요 시간(분)</Text>
+          <View style={styles.addRecipesTimeContainer}>
+            <View>
+              <IglooTextInput style={styles.addRecipesTimeTextInput} />
+            </View>
           </View>
         </View>
         <View>
-          <Text
-            style={{
-              fontSize: 20,
-              fontWeight: 'normal',
-              fontStyle: 'normal',
-            }}
-          >
-            난이도
-          </Text>
-          <View
-            style={{
-              paddingTop: 16,
-              paddingBottom: 32,
-            }}
-          >
+          <Text style={styles.addRecipesDifficultyText}>난이도</Text>
+          <View style={styles.addRecipesDifficultyContainer}>
             <IglooPicker
               style={{
                 width: Dimensions.get('window').width - 36,

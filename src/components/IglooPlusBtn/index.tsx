@@ -1,11 +1,8 @@
 import * as React from 'react';
-import { Platform, StyleProp, TouchableOpacity, View, ViewStyle } from 'react-native';
+import { Platform, TouchableOpacity, View } from 'react-native';
+import { plusBtnProps } from '../../../@types';
 
-type BtnProps = {
-  style: StyleProp<ViewStyle>;
-};
-
-const IglooPlusBtn: React.FC = style => {
+const IglooPlusBtn: React.FC<plusBtnProps> = ({ style }) => {
   return (
     <TouchableOpacity
       style={[

@@ -1,12 +1,8 @@
 import * as React from 'react';
-import { Image, Platform, StyleProp, Text, TouchableOpacity, View, ViewStyle } from 'react-native';
+import { Image, Platform, Text, TouchableOpacity, View } from 'react-native';
+import { itemCardProps } from '../../../@types';
 
-type cardProps = {
-  style: StyleProp<ViewStyle>;
-  data: unknown;
-};
-
-const ItemCard: React.FC<cardProps> = ({ style }) => {
+const ItemCard: React.FC<itemCardProps> = ({ style }) => {
   return (
     <TouchableOpacity
       style={[

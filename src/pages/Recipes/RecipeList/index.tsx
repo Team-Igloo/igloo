@@ -11,7 +11,7 @@ function RenderRecipes() {
   ]);
   return (
     <View>
-      {value.map(function (category: number[]) {
+      {value.map((category: number[]) => {
         return (
           <>
             <View style={{ flexDirection: 'row' }}>

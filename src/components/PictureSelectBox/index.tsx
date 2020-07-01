@@ -1,19 +1,8 @@
 import * as React from 'react';
-import {
-  Platform,
-  StyleProp,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
-  ViewStyle,
-} from 'react-native';
+import { Platform, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { pitureSelectBoxProps } from '../../../@types';
 
-type boxProps = {
-  style: StyleProp<ViewStyle>;
-};
-
-const PictureSelectBox: React.FC<boxProps> = ({ style }) => {
+const PictureSelectBox: React.FC<pitureSelectBoxProps> = ({ style }) => {
   return (
     <View
       style={[

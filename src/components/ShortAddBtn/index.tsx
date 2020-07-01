@@ -1,19 +1,7 @@
 import colors from '@constants/colors';
 import * as React from 'react';
-import {
-  StyleProp,
-  StyleSheet,
-  Text,
-  TextStyle,
-  TouchableOpacity,
-  View,
-  ViewStyle,
-} from 'react-native';
-
-interface ShortAddBtnProps {
-  style: StyleProp<ViewStyle>;
-  textStyle: StyleProp<TextStyle>;
-}
+import { StyleSheet, Text, TouchableOpacity, View, ViewStyle } from 'react-native';
+import { ShortAddBtnProps } from '../../../@types';
 
 const styles = StyleSheet.create({
   container: {

@@ -1,14 +1,9 @@
 import { Picker } from '@react-native-community/picker';
 import * as React from 'react';
-import { Platform, StyleProp, View, ViewStyle } from 'react-native';
+import { Platform, View } from 'react-native';
+import { pickerBtnProps } from '../../../@types';
 
-type BtnProps = {
-  children: string;
-  style: StyleProp<ViewStyle>;
-  data: string;
-};
-
-const IglooPicker: React.FC<BtnProps> = ({ style }) => {
+const IglooPicker: React.FC<pickerBtnProps> = ({ style }) => {
   const [select, setSelect] = React.useState('');
   return (
     <View

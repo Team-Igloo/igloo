@@ -1,21 +1,8 @@
 import * as React from 'react';
-import {
-  Dimensions,
-  Image,
-  Platform,
-  StyleProp,
-  Text,
-  TouchableOpacity,
-  View,
-  ViewStyle,
-} from 'react-native';
+import { Dimensions, Image, Platform, Text, TouchableOpacity, View } from 'react-native';
+import { RecipeCardProps } from '../../../@types';
 
-type cardProps = {
-  style: StyleProp<ViewStyle>;
-  data: unknown;
-};
-
-const RecipeCard: React.FC<cardProps> = ({ style }) => {
+const RecipeCard: React.FC<RecipeCardProps> = ({ style }) => {
   return (
     <TouchableOpacity
       style={[

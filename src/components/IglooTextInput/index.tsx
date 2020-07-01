@@ -1,12 +1,7 @@
 import colors from '@constants/colors';
 import * as React from 'react';
-import { StyleProp, StyleSheet, TextInput, TextStyle, View, ViewStyle } from 'react-native';
-
-interface IglooTextInputProps {
-  style: StyleProp<TextStyle>;
-  leftDeco: React.ComponentType;
-  rightDeco: React.ComponentType;
-}
+import { StyleSheet, TextInput, TextStyle, View, ViewStyle } from 'react-native';
+import { IglooTextInputProps } from '../../../@types';
 
 const styles = StyleSheet.create({
   container: {

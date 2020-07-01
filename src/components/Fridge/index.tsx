@@ -8,7 +8,6 @@ const Fridge: React.FC<FridgeInfo> = ({ percent, name }) => {
   const { current: translateX } = React.useRef(new Animated.Value(getWidth(-310)));
 
   React.useEffect(() => {
-    console.log(getWidth(-310 + -310 * (percent / 100)));
     Animated.timing(translateX, {
       toValue: getWidth(-310 + 310 * (percent / 100)),
       useNativeDriver: true,
