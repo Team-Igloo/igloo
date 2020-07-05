@@ -13,6 +13,7 @@ const colors = {
   placeholder: '#919191',
   veryLightPink: '#f2f2f2',
   black16: 'rgba(0, 0, 0, 0.16)',
+  pinkishGrey: '#c3c1c1',
 };
 
 export default colors;

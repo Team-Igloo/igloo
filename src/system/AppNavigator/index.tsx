@@ -46,7 +46,6 @@ const screenOptions: StackNavigationOptions = {
 function Fridge() {
   return (
     <FridgeStack.Navigator initialRouteName='FridgeList' screenOptions={screenOptions}>
-      <FridgeStack.Screen name='FridgeList' component={FridgeList} />
       <FridgeStack.Screen name='FridgeDetail' component={FridgeDetail} />
       <FridgeStack.Screen name='AddItem' component={AddItem} />
       <FridgeStack.Screen name='AddFridge' component={AddFridge} />
@@ -56,7 +55,7 @@ function Fridge() {
 
 function Recipes() {
   return (
-    <RecipesStack.Navigator initialRouteName='RecipeDetail' screenOptions={screenOptions}>
+    <RecipesStack.Navigator screenOptions={screenOptions}>
       <RecipesStack.Screen name='RecipeDetail' component={RecipeDetail} />
       <RecipesStack.Screen name='RecipeList' component={RecipeList} />
       <RecipesStack.Screen name='AddRecipes' component={AddRecipes} />
@@ -66,15 +65,15 @@ function Recipes() {
 
 function Root() {
   return (
-    <RootStack.Navigator initialRouteName='Fridge' screenOptions={screenOptions}>
-      <RootStack.Screen name='Fridge' component={Fridge} />
-      <RootStack.Screen name='Recipes' component={Recipes} />
+    <RootStack.Navigator screenOptions={screenOptions}>
+      <RootStack.Screen name='FridgeList' component={FridgeList} />
+      <RootStack.Screen name='Fridge' component={Fridge} options={{ headerShown: false }} />
+      <RootStack.Screen name='Recipes' component={Recipes} options={{ headerShown: false }} />
     </RootStack.Navigator>
   );
 }
 
 // navigatior
-
 const AppNavigator: React.FC = () => {
   return (
     <NavigationContainer>

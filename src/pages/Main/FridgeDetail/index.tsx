@@ -109,7 +109,7 @@ const FridgeDetail: React.FC = () => {
     <View style={styles.fridgeDetailContainer}>
       <View style={styles.fridgeDetailNameTextContainer}>
         <Text style={styles.fridgeDetailNameText}>냉장고</Text>
-        <FreshIndication style={styles.fridgeDetailFreshIndicator} val={1} />
+        <FreshIndication style={styles.fridgeDetailFreshIndicator} color='' status='' />
       </View>
       <View style={styles.fridgeDetailLongBtnContainer}>
         <LongAddBtn>상품</LongAddBtn>

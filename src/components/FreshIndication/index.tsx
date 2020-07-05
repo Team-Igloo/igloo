@@ -1,58 +1,39 @@
+import colors from '@constants/colors';
 import * as React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { indicationProps } from '../../../@types';
+import { StyleSheet, Text, TextStyle, View, ViewStyle } from 'react-native';
+import { FreshIndicationProps } from '../../../@types';
 
 const styles = StyleSheet.create({
-  indicatorContainer1: {
+  indicatorContainer: {
     width: 40,
     height: 23,
     borderRadius: 6,
-    backgroundColor: 'rgba(51, 175, 19,1)',
     justifyContent: 'center',
     alignItems: 'center',
-  },
-  indicatorContainer2: {
-    width: 40,
-    height: 23,
-    borderRadius: 6,
-    backgroundColor: 'rgba(239, 202, 0,1)',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  indicatorContainer3: {
-    width: 40,
-    height: 23,
-    borderRadius: 6,
-    backgroundColor: 'rgba(207, 85, 61,1)',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
+  } as ViewStyle,
   indicatorText: {
     fontSize: 15,
-    fontWeight: 'normal',
+    fontWeight: 'bold',
     fontStyle: 'normal',
-    color: 'rgba(255,255,255,1)',
-  },
+    color: colors.white,
+  } as TextStyle,
 });
 
-const FreshIndication: React.FC<indicationProps> = ({ val, style }) => {
-  if (val === 1) {
-    return (
-      <View style={[styles.indicatorContainer1, style]}>
-        <Text style={styles.indicatorText}>신선</Text>
-      </View>
-    );
-  }
-  if (val === 2) {
-    return (
-      <View style={[styles.indicatorContainer2, style]}>
-        <Text style={styles.indicatorText}>보통</Text>
-      </View>
-    );
-  }
+const FreshIndication: React.FC<FreshIndicationProps> = ({ color, status, style }) => {
+  const indicationStyle = React.useMemo(
+    () => [
+      styles.indicatorContainer,
+      {
+        backgroundColor: color,
+      },
+      style,
+    ],
+    [color, style]
+  );
+
   return (
-    <View style={[styles.indicatorContainer3, style]}>
-      <Text style={styles.indicatorText}>나쁨</Text>
+    <View style={indicationStyle}>
+      <Text style={styles.indicatorText}>{status}</Text>
     </View>
   );
 };
