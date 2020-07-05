@@ -1,43 +1,23 @@
 import Fridge from '@components/Fridge';
 import LongAddBtn from '@components/LongAddBtn';
+import { useNavigation } from '@react-navigation/native';
 import * as React from 'react';
-import {
-  FlatList,
-  ListRenderItemInfo,
-  StyleSheet,
-  Text,
-  TextStyle,
-  View,
-  ViewStyle,
-} from 'react-native';
+import { FlatList, ListRenderItemInfo, StyleSheet, ViewStyle } from 'react-native';
 import { FridgeInfo } from '../../../../@types';
 
 const styles = StyleSheet.create({
-  fridgeDetailContainer: {
-    flex: 1,
-  },
-  fridgeListTextContainer: {
-    marginLeft: 18,
-    marginTop: 41,
-  } as TextStyle,
-  fridgeListText: {
-    fontSize: 27,
-    fontWeight: 'normal',
-    fontStyle: 'normal',
-  } as TextStyle,
   fridgeListContainer: {
+    flex: 1,
     marginTop: 13,
   } as ViewStyle,
   fridgeListContentContainer: {
     flexGrow: 1,
-    alignItems: 'center',
-  } as ViewStyle,
-  fridgeListFooterComponent: {
-    marginTop: 26,
+    paddingHorizontal: 16,
   } as ViewStyle,
 });
 
 const FridgeList: React.FC = () => {
+  const navigation = useNavigation();
   const [fridges] = React.useState<FridgeInfo[]>([
     {
       name: '나의 냉장고',
@@ -57,24 +37,21 @@ const FridgeList: React.FC = () => {
     return <Fridge {...item} />;
   }, []);
 
+  React.useEffect(() => {
+    navigation.setOptions({
+      title: '냉장고를 선택해주세요.',
+    });
+  }, [navigation]);
+
   return (
-    <View style={styles.fridgeDetailContainer}>
-      <View style={styles.fridgeListTextContainer}>
-        <Text style={styles.fridgeListText}>냉장고를 선택해주세요.</Text>
-      </View>
-      <FlatList
-        data={fridges}
-        renderItem={renderFridges}
-        keyExtractor={item => item.name}
-        style={styles.fridgeListContainer}
-        contentContainerStyle={styles.fridgeListContentContainer}
-        ListFooterComponent={
-          <View style={styles.fridgeListFooterComponent}>
-            <LongAddBtn>냉장고</LongAddBtn>
-          </View>
-        }
-      />
-    </View>
+    <FlatList
+      data={fridges}
+      renderItem={renderFridges}
+      keyExtractor={item => item.name}
+      style={styles.fridgeListContainer}
+      contentContainerStyle={styles.fridgeListContentContainer}
+      ListFooterComponent={<LongAddBtn>냉장고</LongAddBtn>}
+    />
   );
 };
 

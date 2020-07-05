@@ -54,7 +54,7 @@ function Fridge() {
 
 function Recipes() {
   return (
-    <RecipesStack.Navigator initialRouteName="AddRecipes" screenOptions={screenOptions}>
+    <RecipesStack.Navigator screenOptions={screenOptions}>
       <RecipesStack.Screen name='RecipeDetail' component={RecipeDetail} />
       <RecipesStack.Screen name='RecipeList' component={RecipeList} />
       <RecipesStack.Screen name='AddRecipes' component={AddRecipes} />
@@ -64,10 +64,10 @@ function Recipes() {
 
 function Root() {
   return (
-    <RootStack.Navigator initialRouteName='Recipes' screenOptions={screenOptions}>
+    <RootStack.Navigator screenOptions={screenOptions}>
       <RootStack.Screen name='FridgeList' component={FridgeList} />
-      <RootStack.Screen name='Fridge' component={Fridge} />
-      <RootStack.Screen name='Recipes' component={Recipes} />
+      <RootStack.Screen name='Fridge' component={Fridge} options={{ headerShown: false }} />
+      <RootStack.Screen name='Recipes' component={Recipes} options={{ headerShown: false }} />
     </RootStack.Navigator>
   );
 }
