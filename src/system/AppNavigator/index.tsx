@@ -3,7 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { StackNavigationOptions, createStackNavigator } from '@react-navigation/stack';
 import * as React from 'react';
 
-import { AddItem, FridgeDetail, FridgeList } from '../../pages/Main';
+import { AddFridge, AddItem, FridgeDetail, FridgeList } from '../../pages/Main';
 import { AddRecipes, RecipeDetail, RecipeList } from '../../pages/Recipes';
 
 interface RootStackParamList extends Record<string, Record<string, unknown> | undefined> {
@@ -17,7 +17,7 @@ interface RootStackParamList extends Record<string, Record<string, unknown> | un
   Fridge: Record<string, unknown>;
 }
 
-type FridgeStackScreenNameList = 'FridgeList' | 'FridgeDetail' | 'AddItem';
+type FridgeStackScreenNameList = 'FridgeList' | 'FridgeDetail' | 'AddItem' | 'AddFridge';
 type RecipesStackScreenNameList = 'RecipeDetail' | 'RecipeList' | 'AddRecipes';
 
 // stacks
@@ -45,9 +45,10 @@ const screenOptions: StackNavigationOptions = {
 
 function Fridge() {
   return (
-    <FridgeStack.Navigator screenOptions={screenOptions}>
+    <FridgeStack.Navigator initialRouteName='FridgeList' screenOptions={screenOptions}>
       <FridgeStack.Screen name='FridgeDetail' component={FridgeDetail} />
       <FridgeStack.Screen name='AddItem' component={AddItem} />
+      <FridgeStack.Screen name='AddFridge' component={AddFridge} />
     </FridgeStack.Navigator>
   );
 }
@@ -73,7 +74,6 @@ function Root() {
 }
 
 // navigatior
-
 const AppNavigator: React.FC = () => {
   return (
     <NavigationContainer>

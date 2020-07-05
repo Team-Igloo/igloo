@@ -12,6 +12,9 @@ export interface FridgeInfo {
   percent: number;
   name: string;
 }
+export interface FridgeListInfo {
+  navigation: Object;
+}
 
 export interface FridgeDetailInfo {}
 
@@ -42,6 +45,8 @@ export interface itemCardProps {
 export interface longAddBtnProps {
   children: string;
   style?: StyleProp<ViewStyle>;
+  navigation: Object;
+  toPageName: string;
 }
 
 export interface longBlueBtnProps {

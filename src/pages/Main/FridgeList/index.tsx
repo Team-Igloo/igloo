@@ -3,7 +3,7 @@ import LongAddBtn from '@components/LongAddBtn';
 import { useNavigation } from '@react-navigation/native';
 import * as React from 'react';
 import { FlatList, ListRenderItemInfo, StyleSheet, ViewStyle } from 'react-native';
-import { FridgeInfo } from '../../../../@types';
+import { FridgeInfo, FridgeListInfo } from '../../../../@types';
 
 const styles = StyleSheet.create({
   fridgeListContainer: {
@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
   } as ViewStyle,
 });
 
-const FridgeList: React.FC = () => {
+const FridgeList: React.FC<FridgeListInfo> = ({ navigation }) => {
   const navigation = useNavigation();
   const [fridges] = React.useState<FridgeInfo[]>([
     {
@@ -50,7 +50,7 @@ const FridgeList: React.FC = () => {
       keyExtractor={item => item.name}
       style={styles.fridgeListContainer}
       contentContainerStyle={styles.fridgeListContentContainer}
-      ListFooterComponent={<LongAddBtn>냉장고</LongAddBtn>}
+      ListFooterComponent={<LongAddBtn toPageName="AddFridge">냉장고</LongAddBtn>}
     />
   );
 };

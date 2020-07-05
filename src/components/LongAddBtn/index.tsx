@@ -1,7 +1,9 @@
 import colors from '@constants/colors';
 import * as React from 'react';
+
 import { StyleSheet, Text, TextStyle, TouchableOpacity, View, ViewStyle } from 'react-native';
 import { longAddBtnProps } from '../../../@types';
+import { useNavigation } from '@react-navigation/native';
 
 const styles = StyleSheet.create({
   container: {
@@ -29,8 +31,13 @@ const styles = StyleSheet.create({
   } as TextStyle,
 });
 
-const LongAddBtn: React.FC<longAddBtnProps> = ({ children, style }) => {
+const LongAddBtn: React.FC<longAddBtnProps> = ({ children, style, toPageName }) => {
+  const navigation = useNavigation();
   const containerStyle = React.useMemo(() => [styles.container, style], [style]);
+  
+  const onPress = React.useCallback(() => {
+    navigation.navigate(toPageName);
+  }, [navigation, toPageName]);
 
   return (
     <TouchableOpacity style={containerStyle}>

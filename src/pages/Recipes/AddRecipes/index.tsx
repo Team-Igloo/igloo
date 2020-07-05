@@ -62,6 +62,28 @@ const styles = StyleSheet.create({
     paddingTop: 16,
     paddingBottom: 32,
   },
+  addRecipesDifficultyPicker: {
+    width: Dimensions.get('window').width - 36,
+  },
+  addRecipesPhaseText: {
+    fontSize: 20,
+    fontWeight: 'normal',
+    fontStyle: 'normal',
+  },
+  addRecipesPhaseContainer: {
+    paddingTop: 19,
+    paddingBottom: 26,
+  },
+  addRecipesPictureSelectBox: {
+    width: Dimensions.get('window').width - 36,
+  },
+  addRecipesLongAddBtn: {
+    width: Dimensions.get('window').width - 36,
+  },
+  addRecipesLongBlueBtn: {
+    width: Dimensions.get('window').width - 36,
+    marginTop: 26,
+  },
 });
 
 const AddRecipes: React.FC = () => {
@@ -89,52 +111,18 @@ const AddRecipes: React.FC = () => {
         <View>
           <Text style={styles.addRecipesDifficultyText}>난이도</Text>
           <View style={styles.addRecipesDifficultyContainer}>
-            <IglooPicker
-              style={{
-                width: Dimensions.get('window').width - 36,
-              }}
-            />
+            <IglooPicker style={styles.addRecipesDifficultyPicker} />
           </View>
         </View>
         <View>
-          <Text
-            style={{
-              fontSize: 20,
-              fontWeight: 'normal',
-              fontStyle: 'normal',
-            }}
-          >
-            레시피 단계
-          </Text>
-          <View
-            style={{
-              paddingTop: 19,
-              paddingBottom: 26,
-            }}
-          >
-            <PictureSelectBox
-              style={{
-                width: Dimensions.get('window').width - 36,
-              }}
-            />
+          <Text style={styles.addRecipesPhaseText}>레시피 단계</Text>
+          <View style={styles.addRecipesPhaseContainer}>
+            <PictureSelectBox style={styles.addRecipesPictureSelectBox} />
           </View>
         </View>
         <View>
-          <LongAddBtn
-            style={{
-              width: Dimensions.get('window').width - 36,
-            }}
-          >
-            단계
-          </LongAddBtn>
-          <LongBlueBtn
-            style={{
-              width: Dimensions.get('window').width - 36,
-              marginTop: 26,
-            }}
-          >
-            등록하기
-          </LongBlueBtn>
+          <LongAddBtn style={styles.addRecipesLongAddBtn}>단계</LongAddBtn>
+          <LongBlueBtn style={styles.addRecipesLongBlueBtn}>등록하기</LongBlueBtn>
         </View>
       </View>
     </ScrollView>
