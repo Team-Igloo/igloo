@@ -2,8 +2,8 @@ import colors from '@constants/colors';
 import * as React from 'react';
 
 import { StyleSheet, Text, TextStyle, TouchableOpacity, View, ViewStyle } from 'react-native';
-import { longAddBtnProps } from '../../../@types';
 import { useNavigation } from '@react-navigation/native';
+import { longAddBtnProps } from '../../../@types';
 
 const styles = StyleSheet.create({
   container: {
@@ -34,13 +34,13 @@ const styles = StyleSheet.create({
 const LongAddBtn: React.FC<longAddBtnProps> = ({ children, style, toPageName }) => {
   const navigation = useNavigation();
   const containerStyle = React.useMemo(() => [styles.container, style], [style]);
-  
+
   const onPress = React.useCallback(() => {
     navigation.navigate(toPageName);
   }, [navigation, toPageName]);
 
   return (
-    <TouchableOpacity style={containerStyle}>
+    <TouchableOpacity style={containerStyle} onPress={onPress}>
       <View style={{ width: 22, height: 22, backgroundColor: 'red' }} />
       <Text style={styles.addText}>{children} 추가하기</Text>
     </TouchableOpacity>

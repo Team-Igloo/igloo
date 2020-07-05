@@ -112,7 +112,7 @@ const FridgeDetail: React.FC = () => {
         <FreshIndication style={styles.fridgeDetailFreshIndicator} color='' status='' />
       </View>
       <View style={styles.fridgeDetailLongBtnContainer}>
-        <LongAddBtn>상품</LongAddBtn>
+        <LongAddBtn toPageName=''>상품</LongAddBtn>
       </View>
       <ScrollView style={styles.fridgeDetailCategoryContainer}>{renderItems()}</ScrollView>
     </View>

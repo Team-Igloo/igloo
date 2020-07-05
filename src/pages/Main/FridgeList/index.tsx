@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
   } as ViewStyle,
 });
 
-const FridgeList: React.FC<FridgeListInfo> = ({ navigation }) => {
+const FridgeList: React.FC<FridgeListInfo> = () => {
   const navigation = useNavigation();
   const [fridges] = React.useState<FridgeInfo[]>([
     {
@@ -50,7 +50,7 @@ const FridgeList: React.FC<FridgeListInfo> = ({ navigation }) => {
       keyExtractor={item => item.name}
       style={styles.fridgeListContainer}
       contentContainerStyle={styles.fridgeListContentContainer}
-      ListFooterComponent={<LongAddBtn toPageName="AddFridge">냉장고</LongAddBtn>}
+      ListFooterComponent={<LongAddBtn toPageName='AddFridge'>냉장고</LongAddBtn>}
     />
   );
 };
