@@ -3,7 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { StackNavigationOptions, createStackNavigator } from '@react-navigation/stack';
 import * as React from 'react';
 
-import { AddItem, FridgeDetail, FridgeList } from '../../pages/Main';
+import { AddFridge, AddItem, FridgeDetail, FridgeList } from '../../pages/Main';
 import { AddRecipes, RecipeDetail, RecipeList } from '../../pages/Recipes';
 
 interface RootStackParamList extends Record<string, Record<string, unknown> | undefined> {
@@ -17,7 +17,7 @@ interface RootStackParamList extends Record<string, Record<string, unknown> | un
   Fridge: Record<string, unknown>;
 }
 
-type FridgeStackScreenNameList = 'FridgeList' | 'FridgeDetail' | 'AddItem';
+type FridgeStackScreenNameList = 'FridgeList' | 'FridgeDetail' | 'AddItem' | 'AddFridge';
 type RecipesStackScreenNameList = 'RecipeDetail' | 'RecipeList' | 'AddRecipes';
 
 // stacks
@@ -45,16 +45,18 @@ const screenOptions: StackNavigationOptions = {
 
 function Fridge() {
   return (
-    <FridgeStack.Navigator screenOptions={screenOptions}>
+    <FridgeStack.Navigator initialRouteName='FridgeList' screenOptions={screenOptions}>
+      <FridgeStack.Screen name='FridgeList' component={FridgeList} />
       <FridgeStack.Screen name='FridgeDetail' component={FridgeDetail} />
       <FridgeStack.Screen name='AddItem' component={AddItem} />
+      <FridgeStack.Screen name='AddFridge' component={AddFridge} />
     </FridgeStack.Navigator>
   );
 }
 
 function Recipes() {
   return (
-    <RecipesStack.Navigator initialRouteName="AddRecipes" screenOptions={screenOptions}>
+    <RecipesStack.Navigator initialRouteName='RecipeDetail' screenOptions={screenOptions}>
       <RecipesStack.Screen name='RecipeDetail' component={RecipeDetail} />
       <RecipesStack.Screen name='RecipeList' component={RecipeList} />
       <RecipesStack.Screen name='AddRecipes' component={AddRecipes} />
@@ -64,8 +66,7 @@ function Recipes() {
 
 function Root() {
   return (
-    <RootStack.Navigator initialRouteName='Recipes' screenOptions={screenOptions}>
-      <RootStack.Screen name='FridgeList' component={FridgeList} />
+    <RootStack.Navigator initialRouteName='Fridge' screenOptions={screenOptions}>
       <RootStack.Screen name='Fridge' component={Fridge} />
       <RootStack.Screen name='Recipes' component={Recipes} />
     </RootStack.Navigator>

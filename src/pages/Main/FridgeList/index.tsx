@@ -10,7 +10,7 @@ import {
   View,
   ViewStyle,
 } from 'react-native';
-import { FridgeInfo } from '../../../../@types';
+import { FridgeInfo, FridgeListInfo } from '../../../../@types';
 
 const styles = StyleSheet.create({
   fridgeDetailContainer: {
@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
   } as ViewStyle,
 });
 
-const FridgeList: React.FC = () => {
+const FridgeList: React.FC<FridgeListInfo> = ({ navigation }) => {
   const [fridges] = React.useState<FridgeInfo[]>([
     {
       name: '나의 냉장고',
@@ -70,7 +70,9 @@ const FridgeList: React.FC = () => {
         contentContainerStyle={styles.fridgeListContentContainer}
         ListFooterComponent={
           <View style={styles.fridgeListFooterComponent}>
-            <LongAddBtn>냉장고</LongAddBtn>
+            <LongAddBtn navigation={navigation} toPageName="AddFridge">
+              냉장고
+            </LongAddBtn>
           </View>
         }
       />
