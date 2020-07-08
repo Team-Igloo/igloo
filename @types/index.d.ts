@@ -16,6 +16,13 @@ export interface FridgeListInfo {}
 
 export interface FridgeDetailInfo {}
 
+export interface MypageMoreItemsInfo {}
+
+export interface FridgeMoreItemsInfo {}
+
+export interface recipeInfo {}
+
+export interface itemInfo {}
 // component's types
 export interface FreshIndicationProps extends ViewProps, FridgeStatus {}
 

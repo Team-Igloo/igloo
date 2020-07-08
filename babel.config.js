@@ -1,4 +1,4 @@
-module.exports = (api) => {
+module.exports = api => {
   api.cache(true);
   return {
     presets: ['module:metro-react-native-babel-preset'],
@@ -38,6 +38,10 @@ module.exports = (api) => {
             {
               rootPathSuffix: '.',
               rootPathPrefix: '/',
+            },
+            {
+              rootPathSuffix: './@types',
+              rootPathPrefix: '@types',
             },
           ],
         },
