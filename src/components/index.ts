@@ -8,6 +8,7 @@ import LongBlueBtn from './LongBlueBtn';
 import PictureSelectBox from './PictureSelectBox';
 import RecipeCard from './RecipeCard';
 import ShortAddBtn from './ShortAddBtn';
+import IglooText from './IglooText';
 
 export default {
   LongAddBtn,
@@ -20,4 +21,5 @@ export default {
   IglooPlusBtn,
   PictureSelectBox,
   RecipeCard,
+  IglooText,
 };

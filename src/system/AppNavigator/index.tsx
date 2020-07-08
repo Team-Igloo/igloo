@@ -4,7 +4,14 @@ import { StackNavigationOptions, createStackNavigator } from '@react-navigation/
 import * as React from 'react';
 
 import { MyPageHome, MypageMoreItems } from '@pages/MyPage';
-import { AddFridge, AddItem, FridgeDetail, FridgeList, FridgeMoreItems } from '../../pages/Main';
+import {
+  AddFridge,
+  AddItem,
+  FridgeDetail,
+  FridgeItemDetail,
+  FridgeList,
+  FridgeMoreItems,
+} from '../../pages/Main';
 import { AddRecipes, RecipeDetail, RecipeList } from '../../pages/Recipes';
 
 interface RootStackParamList extends Record<string, Record<string, unknown> | undefined> {
@@ -13,6 +20,7 @@ interface RootStackParamList extends Record<string, Record<string, unknown> | un
   RecipeDetail: Record<string, unknown>;
   FridgeList: Record<string, unknown>;
   FridgeDetail: Record<string, unknown>;
+  FridgeItemDetail: Record<string, unknown>;
   AddFridge: Record<string, unknown>;
   AddItem: Record<string, unknown>;
   FridgeMoreItems: Record<string, unknown>;
@@ -27,7 +35,8 @@ type FridgeStackScreenNameList =
   | 'FridgeDetail'
   | 'AddItem'
   | 'AddFridge'
-  | 'FridgeMoreItems';
+  | 'FridgeMoreItems'
+  | 'FridgeItemDetail';
 type RecipesStackScreenNameList = 'RecipeDetail' | 'RecipeList' | 'AddRecipes';
 
 type MypageStackScreenNameList = 'MyPageHome' | 'MypageMoreItems';
@@ -62,6 +71,7 @@ function Fridge() {
       <FridgeStack.Screen name='FridgeList' component={FridgeList} />
       <FridgeStack.Screen name='FridgeDetail' component={FridgeDetail} />
       <FridgeStack.Screen name='FridgeMoreItems' component={FridgeMoreItems} />
+      <FridgeStack.Screen name='FridgeItemDetail' component={FridgeItemDetail} />
       <FridgeStack.Screen name='AddItem' component={AddItem} />
       <FridgeStack.Screen name='AddFridge' component={AddFridge} />
     </FridgeStack.Navigator>
@@ -90,7 +100,7 @@ function MyPage() {
 function Root() {
   return (
     <RootStack.Navigator screenOptions={screenOptions}>
-      <RootStack.Screen name='FridgeMoreItems' component={FridgeMoreItems} />
+      <RootStack.Screen name='FridgeItemDetail' component={FridgeItemDetail} />
       <RootStack.Screen name='MyPage' component={MyPage} />
 
       <RootStack.Screen name='Fridge' component={Fridge} options={{ headerShown: false }} />

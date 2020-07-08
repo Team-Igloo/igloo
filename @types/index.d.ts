@@ -12,9 +12,12 @@ export interface FridgeInfo {
   percent: number;
   name: string;
 }
+
 export interface FridgeListInfo {}
 
 export interface FridgeDetailInfo {}
+
+export interface FridgeItemDetailInfo {}
 
 export interface MypageMoreItemsInfo {}
 
@@ -34,6 +37,15 @@ export interface pickerBtnProps {
 
 export interface plusBtnProps {
   style?: StyleProp<ViewStyle>;
+}
+
+export interface iglooTextProps {
+  children?: String;
+  style?: StyleProp<TextStyle>;
+  EB?: boolean;
+  B?: boolean;
+  L?: boolean;
+  R?: boolean;
 }
 
 export interface IglooTextInputProps {

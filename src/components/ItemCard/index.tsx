@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Image, Platform, Text, TouchableOpacity, View } from 'react-native';
+import fonts from '@constants/fonts';
 import { itemCardProps } from '../../../@types';
 
 const ItemCard: React.FC<itemCardProps> = ({ style }) => {
@@ -32,6 +33,7 @@ const ItemCard: React.FC<itemCardProps> = ({ style }) => {
             fontWeight: 'normal',
             fontStyle: 'normal',
             color: 'rgba(255,255,255,1)',
+            fontFamily: fonts.NanumSquareRoundEB,
           }}
         >
           상추
